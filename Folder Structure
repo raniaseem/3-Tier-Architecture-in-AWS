@@ -1,0 +1,22 @@
+AWS-3-Tier-Architecture/
+│
+├── app-tier/
+│   ├── index.js
+│   ├── transactionService.js
+│   ├── Dbconfig.js
+│   ├── package.json
+│   └── package-lock.json
+│
+├── web-tier/
+│   ├── index.html
+│   ├── style.css
+│   └── app.js
+│
+├── screenshots/
+│   ├── architecture.png
+│   ├── target-group-healthy.png
+│   ├── aurora-db.png
+│   ├── alb.png
+│   └── cloudwatch.png
+│
+└── README.md
