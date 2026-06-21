@@ -1,136 +1,134 @@
-AWS 3-Tier Architecture on AWS
-Project Overview
 
-This project demonstrates the implementation of a highly available and scalable 3-Tier Architecture on AWS.
+# AWS 3-Tier Architecture on AWS
 
-Architecture Components
-Web Tier: Amazon S3 Static Website Hosting
-Application Tier: EC2 Instance running Node.js application
-Database Tier: Amazon Aurora MySQL
-Load Balancing: Application Load Balancer (ALB)
-Scalability: Auto Scaling Group (ASG)
-Monitoring: Amazon CloudWatch
-Architecture Diagram
+## Project Overview
+
+This project demonstrates the implementation of a complete AWS 3-Tier Architecture using Amazon S3, EC2, Aurora MySQL, Application Load Balancer, Auto Scaling Group, and CloudWatch.
+
+## Architecture Diagram
+
+<img width="1226" height="555" alt="Architecture"
+src="YOUR_ARCHITECTURE_IMAGE_LINK"/>
+
+---
+
+## Architecture Flow
+
 User
-   │
-   ▼
+↓
 S3 Static Website
-   │
-   ▼
+↓
 Application Load Balancer
-   │
-   ▼
+↓
 EC2 Auto Scaling Group
-   │
-   ▼
+↓
 Aurora MySQL Database
-Architecture Screenshot
 
-Step 1: Create VPC and Networking
+---
 
-Created custom VPC with:
+## AWS Services Used
 
-Public Subnets
-Private Subnets
-Internet Gateway
-NAT Gateway
-Route Tables
-Screenshot
-<img width="940" height="411" alt="VPC"
-src="https://github.com/user-attachments/assets/b29b2b2f-27d7-4fce-82ee-203417a489ad" />
-Step 2: Configure Security Groups
+- Amazon VPC
+- Public & Private Subnets
+- Internet Gateway
+- NAT Gateway
+- Security Groups
+- S3 Static Website Hosting
+- EC2
+- Launch Template
+- Auto Scaling Group
+- Application Load Balancer
+- Aurora MySQL
+- CloudWatch
 
-Created Security Groups for:
+---
 
-ALB
-Application EC2
-Aurora Database
+## Step 1: VPC Setup
 
-Configured inbound and outbound rules.
+Created custom VPC with public and private subnets.
 
-Screenshot
-<img width="940" height="418"
-src="https://github.com/user-attachments/assets/54026c66-5880-4775-839f-23148a0db8e0" />
-Step 3: Launch Aurora MySQL Database
+<img src="YOUR_VPC_SCREENSHOT"/>
 
-Created Aurora MySQL database inside private subnet.
+---
 
-Database Details
-Parameter	Value
-Engine	Aurora MySQL
-Database	webappdb
-Table	transactions
-Screenshot
-<img width="940" height="416"
-src="https://github.com/user-attachments/assets/f8fc277d-e951-4fc7-8134-d74d2870112a" />
-Step 4: Deploy Node.js Application
+## Step 2: Security Groups
 
-Created Node.js backend using:
+Configured Security Groups for:
+- ALB
+- EC2
+- Aurora
 
-Express.js
-MySQL2
+<img src="YOUR_SECURITY_GROUP_SCREENSHOT"/>
 
-Files:
+---
 
-index.js
-transactionService.js
-Dbconfig.js
-package.json
-Screenshot
-<img width="940" height="417"
-src="https://github.com/user-attachments/assets/716d9c8c-fdb8-4a01-964a-44007f25b779" />
-Step 5: Configure Application Load Balancer
+## Step 3: Aurora Database
 
-Created ALB and configured:
+Created Aurora MySQL database and configured connectivity.
 
-Listener
-Target Group
-Health Checks
-Screenshot
-<img width="940" height="416"
-src="https://github.com/user-attachments/assets/89d8516e-bb8c-4c70-b5eb-e4c625231e49" />
-Step 6: Configure Auto Scaling Group
+<img src="YOUR_AURORA_SCREENSHOT"/>
 
-Created:
+---
 
-Launch Template
-Auto Scaling Group
+## Step 4: Application Tier
 
-Benefits:
+Deployed Node.js application on EC2.
 
-High Availability
-Self Healing
-Scalability
-Screenshot
-<img width="940" height="421"
-src="https://github.com/user-attachments/assets/46146c0f-0074-4b04-a8eb-fb77646d21bd" />
-Step 7: Configure S3 Static Website Hosting
+Files used:
 
-Uploaded:
+- index.js
+- transactionService.js
+- package.json
+- Dbconfig.js
 
-index.html
-style.css
-app.js
+<img src="YOUR_EC2_SCREENSHOT"/>
 
-Configured:
+---
 
-Static Website Hosting
-Bucket Policy
-Screenshot
-<img width="940" height="417"
-src="https://github.com/user-attachments/assets/dd8e1bf4-f675-4ebd-8152-37acf9af794a" />
-Step 8: Configure CloudWatch Monitoring
+## Step 5: Application Load Balancer
 
-Monitored:
+Configured ALB, Listener, and Target Group.
 
-EC2 CPU Utilization
-ALB Request Count
-Aurora Metrics
-Screenshot
-<img width="940" height="422"
-src="https://github.com/user-attachments/assets/59e87f67-f93c-4c52-8132-96894eef2db3" />
-Application Verification
-API Response
+<img src="YOUR_ALB_SCREENSHOT"/>
+
+---
+
+## Step 6: Auto Scaling Group
+
+Configured Launch Template and Auto Scaling Group.
+
+<img src="YOUR_ASG_SCREENSHOT"/>
+
+---
+
+## Step 7: S3 Static Website Hosting
+
+Uploaded frontend files:
+
+- index.html
+- style.css
+- app.js
+
+<img src="YOUR_S3_SCREENSHOT"/>
+
+---
+
+## Step 8: CloudWatch Monitoring
+
+Configured monitoring for:
+- EC2
+- ALB
+- Aurora
+
+<img src="YOUR_CLOUDWATCH_SCREENSHOT"/>
+
+---
+
+## Application Verification
+
+### API Response
+
+\`\`\`json
 [
   {
     "id": 1,
@@ -138,32 +136,37 @@ API Response
     "description": "groceries"
   }
 ]
-Application Output
-<img width="940" height="416"
-src="https://github.com/user-attachments/assets/cbc024e2-dd9c-4332-8a3a-e4988e00e2bd" />
-Project Outcome
+\`\`\`
 
-Successfully deployed a complete AWS 3-Tier Architecture using:
+### PM2 Status
 
-Amazon S3
-Application Load Balancer
-EC2
-Auto Scaling Group
-Aurora MySQL
-CloudWatch
+\`\`\`bash
+pm2 list
+app-tier online
+\`\`\`
 
-Features achieved:
+### Database Connectivity
 
-✅ High Availability
-✅ Scalability
-✅ Security
-✅ Load Balancing
-✅ Monitoring
-✅ Database Connectivity
-✅ Static Website Hosting
+Successfully connected Aurora MySQL with Node.js backend.
 
-Author
+---
 
-Rani Aseem
+## Project Outcome
+
+Successfully deployed a complete AWS 3-Tier Architecture with:
+
+✅ S3 Static Website Hosting  
+✅ Application Load Balancer  
+✅ EC2 Application Tier  
+✅ Aurora MySQL Database  
+✅ Auto Scaling Group  
+✅ CloudWatch Monitoring  
+✅ Node.js Backend Integration
+
+---
+
+## Author
+
+**Rani Aseem**
 
 AWS Cloud | DevOps | Network Engineer
