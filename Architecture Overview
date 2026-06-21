@@ -1,0 +1,168 @@
+AWS 3-Tier Architecture on AWS
+
+Project Overview
+
+This project demonstrates the implementation of a complete AWS 3-Tier Architecture using Amazon S3, EC2, Aurora MySQL, Application Load Balancer, Auto Scaling Group, and CloudWatch.
+
+Architecture Diagram
+
+
+
+Architecture Flow
+
+User
+↓
+S3 Static Website
+↓
+Application Load Balancer
+↓
+EC2 Auto Scaling Group
+↓
+Aurora MySQL Database
+
+---
+
+## AWS Services Used
+
+- Amazon VPC
+- Public & Private Subnets
+- Internet Gateway
+- NAT Gateway
+- Security Groups
+- S3 Static Website Hosting
+- EC2
+- Launch Template
+- Auto Scaling Group
+- Application Load Balancer
+- Aurora MySQL
+- CloudWatch
+
+---
+
+## Step 1: VPC Setup
+
+Created custom VPC with public and private subnets.
+
+<img src="YOUR_VPC_SCREENSHOT"/>
+
+---
+
+## Step 2: Security Groups
+
+Configured Security Groups for:
+- ALB
+- EC2
+- Aurora
+
+<img src="YOUR_SECURITY_GROUP_SCREENSHOT"/>
+
+---
+
+## Step 3: Aurora Database
+
+Created Aurora MySQL database and configured connectivity.
+
+<img src="YOUR_AURORA_SCREENSHOT"/>
+
+---
+
+## Step 4: Application Tier
+
+Deployed Node.js application on EC2.
+
+Files used:
+
+- index.js
+- transactionService.js
+- package.json
+- Dbconfig.js
+
+<img src="YOUR_EC2_SCREENSHOT"/>
+
+---
+
+## Step 5: Application Load Balancer
+
+Configured ALB, Listener, and Target Group.
+
+<img src="YOUR_ALB_SCREENSHOT"/>
+
+---
+
+## Step 6: Auto Scaling Group
+
+Configured Launch Template and Auto Scaling Group.
+
+<img src="YOUR_ASG_SCREENSHOT"/>
+
+---
+
+## Step 7: S3 Static Website Hosting
+
+Uploaded frontend files:
+
+- index.html
+- style.css
+- app.js
+
+<img src="YOUR_S3_SCREENSHOT"/>
+
+---
+
+## Step 8: CloudWatch Monitoring
+
+Configured monitoring for:
+- EC2
+- ALB
+- Aurora
+
+<img src="YOUR_CLOUDWATCH_SCREENSHOT"/>
+
+---
+
+## Application Verification
+
+### API Response
+
+\`\`\`json
+[
+  {
+    "id": 1,
+    "amount": "400.00",
+    "description": "groceries"
+  }
+]
+\`\`\`
+
+### PM2 Status
+
+\`\`\`bash
+pm2 list
+app-tier online
+\`\`\`
+
+### Database Connectivity
+
+Successfully connected Aurora MySQL with Node.js backend.
+
+---
+
+## Project Outcome
+
+Successfully deployed a complete AWS 3-Tier Architecture with:
+
+✅ S3 Static Website Hosting  
+✅ Application Load Balancer  
+✅ EC2 Application Tier  
+✅ Aurora MySQL Database  
+✅ Auto Scaling Group  
+✅ CloudWatch Monitoring  
+✅ Node.js Backend Integration
+
+---
+
+## Author
+
+**Rani Aseem**
+
+AWS Cloud | DevOps | Network Engineer
