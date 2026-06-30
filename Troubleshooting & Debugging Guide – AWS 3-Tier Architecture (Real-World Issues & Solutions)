@@ -1,0 +1,73 @@
+# 🔧 Troubleshooting & Debugging Guide – AWS 3-Tier Architecture (Real-World Issues & Solutions)
+
+During the implementation of this AWS 3-Tier Architecture project, I encountered several real-world issues. Instead of recreating the infrastructure, I followed a systematic troubleshooting approach to identify the root cause and resolve each problem. These experiences significantly improved my debugging skills and strengthened my understanding of AWS networking, security, and application connectivity.
+
+---
+
+## 1. Secrets Manager Authentication Issue
+
+### Problem
+
+The application failed to connect to the Amazon Aurora database due to a database authentication error.
+
+### Root Cause
+
+The credentials stored in AWS Secrets Manager did not match the actual database username and password.
+
+### Troubleshooting Steps
+
+* Verified the database endpoint and port.
+* Reviewed the secret stored in AWS Secrets Manager.
+* Compared the stored username and password with the Amazon Aurora database credentials.
+* Updated the incorrect secret values.
+* Restarted the application and validated the database connection.
+
+### Resolution
+
+After updating the credentials in AWS Secrets Manager, the application successfully connected to the database.
+
+### Key Learning
+
+Never hardcode credentials. Always verify Secrets Manager values when troubleshooting database authentication issues.
+
+---
+
+## 2. Private EC2 Internet Connectivity Issue
+
+### Problem
+
+The private EC2 instance could not access the internet, and `ping 8.8.8.8` was unsuccessful.
+
+### Root Cause Analysis
+
+I systematically verified each networking component instead of making assumptions.
+
+### Troubleshooting Steps
+
+* Verified the NAT Gateway was deployed correctly.
+* Confirmed the private subnet route table pointed to the NAT Gateway.
+* Checked the Internet Gateway attachment to the VPC.
+* Reviewed Security Group outbound rules.
+* Validated Network ACL rules.
+* Confirmed the EC2 IAM Role and Session Manager configuration.
+* Tested internet connectivity after each configuration change.
+
+### Resolution
+
+After correcting the networking configuration, the private EC2 instance successfully accessed the internet.
+
+### Key Learning
+
+When debugging networking issues, validate each AWS networking component one by one instead of changing multiple settings simultaneously.
+
+---
+
+# Lessons Learned
+
+* Follow a structured troubleshooting approach.
+* Identify the root cause before applying fixes.
+* Validate every networking component independently.
+* Use AWS managed services such as IAM Roles and Secrets Manager instead of hardcoded credentials.
+* Real-world cloud engineering involves debugging production issues as much as deploying infrastructure.
+
+These troubleshooting scenarios enhanced my practical understanding of AWS networking, security, application connectivity, and production-ready infrastructure deployment.
